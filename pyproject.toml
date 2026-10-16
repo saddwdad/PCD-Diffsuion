@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcd-diffusion-reference"
+version = "0.2.0"
+license = {file = "LICENSE"}
+description = "Independent, executable PCD-Diffusion research implementation"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.4,<3", "numpy>=1.24,<3", "Pillow>=10", "einops>=0.6", "scipy>=1.10", "opencv-python>=4.8,<4.12"]
+
+[project.optional-dependencies]
+raft = ["torchvision>=0.19,<1"]
+test = ["pytest>=7"]
+mat = ["scipy>=1.10"]
+
+[project.scripts]
+pcd = "pcd_diffusion.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pcd_diffusion*"]
+
+[tool.setuptools.package-data]
+"pcd_diffusion.vendor.prior_reconstruction" = ["LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

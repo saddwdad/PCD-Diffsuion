@@ -1,0 +1,14 @@
+{
+  "model": {
+    "channels": 1, "width": 128, "blocks": 8, "steps": 128,
+    "motion_backend": "raft", "raft_weights": null, "raft_updates": 12,
+    "gradient_checkpointing": true,
+    "lambda_diff": 0.5, "lambda_measure": 0.5,
+    "lambda_recon": 1.0, "lambda_autoencoder": 0.1
+  },
+  "train": {
+    "epochs": 300, "batch_size": 1, "lr": 0.0001, "weight_decay": 0.00001,
+    "lr_step": 100, "amp": true, "workers": 0, "seed": 7, "threads": 4,
+    "clip_grad": 1.0
+  }
+}
